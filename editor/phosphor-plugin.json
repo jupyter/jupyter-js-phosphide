@@ -1,0 +1,34 @@
+{
+  "extensions": [
+    {
+      "id": "editor:content-0",
+      "point": "phosphide:ui:main",
+      "main": "index.js",
+      "factory": "createContent"
+    },
+    {
+      "id": "editor:content-1",
+      "point": "phosphide:ui:main",
+      "main": "index.js",
+      "factory": "createContent"
+    },
+    {
+      "id": "editor:content-2",
+      "point": "phosphide:ui:main",
+      "main": "index.js",
+      "factory": "createContent"
+    },
+    {
+      "id": "editor:content-3",
+      "point": "phosphide:ui:main",
+      "main": "index.js",
+      "factory": "createContent"
+    },
+    {
+      "id": "editor:content-4",
+      "point": "phosphide:ui:main",
+      "main": "index.js",
+      "factory": "createContent"
+    }
+  ]
+}
