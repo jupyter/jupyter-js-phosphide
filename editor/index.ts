@@ -2,9 +2,7 @@
 // Distributed under the terms of the Modified BSD License.
 'use strict';
 
-import {
-  CodeMirror
-} from 'codemirror';
+import * as CodeMirror from 'codemirror';
 
 import {
   Message
