@@ -12,7 +12,6 @@
     "jupyter-js-filebrowser-plugin": "jupyter/jupyter-js-filebrowser-plugin"
   },
   "devDependencies": {
-    "codemirror": "^5.9.0",
     "rimraf": "^2.4.4",
     "steal": "^0.12.7",
     "typescript": "^1.6.2"
