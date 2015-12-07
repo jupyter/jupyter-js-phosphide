@@ -33,6 +33,7 @@ def main(argv):
         line = nb_server.stdout.readline().decode('utf-8').strip()
         if not line:
             continue
+        print("Browse to http://localhost:8765")
         print(line)
         if 'The IPython Notebook is running at: http://localhost:8888/':
             break
