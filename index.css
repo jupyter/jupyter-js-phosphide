@@ -1,0 +1,264 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #EFEFEF;
+  overflow: hidden;
+}
+
+
+#p-main-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+.p-SideBar {
+  position: relative;
+  min-width: 36px;
+  max-width: 36px;
+  font-size: 13px;
+  font-family: Helvetica, Arial;
+  background: #F7F7F7;
+  z-index: 0;
+}
+
+
+.p-Widget.p-SideBar {
+  overflow: visible;
+}
+
+
+.p-SideBar.p-mod-left {
+  border-right: 1px solid #C0C0C0;
+}
+
+
+.p-SideBar.p-mod-right {
+  border-left: 1px solid #C0C0C0;
+}
+
+
+.p-SideBar-content {
+  padding: 0;
+  margin: 0;
+  height: 35px;
+  display: flex;
+  align-items: stretch;
+  list-style-type: none;
+  transform-origin: 0 0 0;
+  z-index: 1;
+}
+
+
+.p-SideBar.p-mod-left > .p-SideBar-content {
+  flex-direction: row-reverse;
+  transform: rotate(-90deg) translateX(-100%);
+}
+
+
+.p-SideBar.p-mod-right > .p-SideBar-content {
+  flex-direction: row;
+  transform: rotate(90deg) translateY(-100%);
+}
+
+
+.p-SideBarButton {
+  padding: 0 18px;
+  line-height: 35px;
+  box-sizing: border-box;
+}
+
+
+.p-SideBarButton:hover:not(.p-mod-current) {
+  background: #F0F0F0;
+}
+
+
+.p-SideBarButton.p-mod-current {
+  background: white;
+  min-height: 36px;
+}
+
+
+.p-SideBar.p-mod-left > .p-SideBar-content > .p-SideBarButton {
+  border-left: 1px solid #C0C0C0;
+}
+
+
+.p-SideBar.p-mod-right > .p-SideBar-content > .p-SideBarButton {
+  border-right: 1px solid #C0C0C0;
+}
+
+
+#p-left-stack {
+  padding: 5px;
+  background: white;
+}
+
+
+#p-right-stack {
+  padding: 5px;
+  background: white;
+}
+
+
+.red-content {
+  background: #E74C3C;
+  border: 1px solid black;
+  min-width: 100px;
+}
+
+
+.yellow-content {
+  background: #F1C40F;
+  border: 1px solid black;
+  min-width: 100px;
+}
+
+
+.green-content {
+  background: #27AE60;
+  border: 1px solid black;
+  min-width: 100px;
+}
+
+
+.blue-content {
+  background: #3498DB;
+  border: 1px solid black;
+  min-width: 100px;
+}
+
+
+#p-main-dock-panel {
+  padding: 6px;
+}
+
+
+.p-Widget.p-DockSplitPanel {
+  overflow: visible;
+}
+
+.p-DockTabPanel {
+  border: 1px solid #C0C0C0;
+  border-top: none;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.p-DockTabPanel > .p-StackedPanel {
+  padding: 12px;
+  background: white;
+}
+
+
+.p-DockPanelOverlay {
+  background: rgba(236, 110, 47, 0.1);
+  border: 1px dashed #EC6E2F;
+}
+
+
+.p-DockPanelOverlay.p-mod-root-top,
+.p-DockPanelOverlay.p-mod-root-left,
+.p-DockPanelOverlay.p-mod-root-right,
+.p-DockPanelOverlay.p-mod-root-bottom,
+.p-DockPanelOverlay.p-mod-root-center {
+  border-width: 2px;
+}
+
+
+.p-TabBar {
+  min-height: 24px;
+  background: #F7F7F7;
+}
+
+
+.p-TabBar > .p-TabBar-body {
+  top: 1px;
+  bottom: 1px;
+}
+
+
+.p-TabBar > .p-TabBar-header {
+  display: block;
+  height: 1px;
+  background: #C0C0C0;
+}
+
+
+.p-TabBar > .p-TabBar-footer {
+  display: block;
+  height: 1px;
+  background: #C0C0C0;
+}
+
+
+.p-TabBar-content {
+  align-items: stretch;
+}
+
+
+.p-Tab {
+  flex-basis: 125px;
+  min-width: 35px;
+  margin-left: -1px;
+  border-left: 1px solid #C0C0C0;
+  border-right: 1px solid #C0C0C0;
+  padding: 0px 10px;
+  background: #E5E5E5;
+  font: 12px Helvetica, Arial, sans-serif;
+}
+
+
+.p-Tab.p-mod-current {
+  border-top: 2px solid #EC6E2F;
+  background: white;
+  min-height: 24px;
+  transform: translateY(-1px);
+}
+
+
+.p-Tab:hover:not(.p-mod-current) {
+  background: #F0F0F0;
+}
+
+
+.p-Tab-icon,
+.p-Tab-text,
+.p-Tab-close {
+  line-height: 21px;
+}
+
+
+.p-Tab.p-mod-closable > .p-Tab-close {
+  margin-left: 4px;
+}
+
+
+.p-Tab.p-mod-closable > .p-Tab-close:before {
+  content: '\f00d';
+  font-family: FontAwesome;
+}
+
+
+.p-Tab.p-mod-drag-image {
+  min-height: 24px;
+  min-width: 125px;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translateX(-40%) translateY(-58%);
+}
+
+
+#p-main-split-panel > .p-SplitHandle {
+  background: #C0C0C0;
+}
+
+
+.editor-CodeMirrorWidget {
+  border: 1px solid #C0C0C0;
+}

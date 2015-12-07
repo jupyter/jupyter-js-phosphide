@@ -1,0 +1,42 @@
+{
+  "name": "jupyter-js-phosphide",
+  "version": "0.0.1",
+  "description": "Prototype application for Jupyter based on Phosphide",
+  "main": "index.js",
+  "dependencies": {
+    "codemirror": "^5.9.0",
+    "phosphide": "^0.0.2",
+    "phosphor-messaging": "^1.0.5",
+    "phosphor-plugins": "^0.4.0",
+    "phosphor-widget": "^1.0.0-beta",
+    "jupyter-js-filebrowser-plugin": "jupyter/jupyter-js-filebrowser-plugin"
+  },
+  "devDependencies": {
+    "rimraf": "^2.4.4",
+    "steal": "^0.12.7",
+    "typescript": "^1.6.2"
+  },
+  "scripts": {
+    "build": "tsc --project editor",
+    "postinstall": "npm dedupe"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jupyter/jupyter-js-phosphide"
+  },
+  "keywords": [
+    "jupyter",
+    "phosphide",
+    "application"
+  ],
+  "files": [
+    "index.js",
+    "index.css"
+  ],
+  "author": "Project Jupyter",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/jupyter/jupyter-js-phosphide/issues"
+  },
+  "homepage": "https:github.com/jupyter/jupyter-js-phosphide"
+}
