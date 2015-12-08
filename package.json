@@ -10,7 +10,7 @@
     "phosphor-plugins": "^0.4.0",
     "phosphor-widget": "^1.0.0-beta",
     "jupyter-js-filebrowser-plugin": "jupyter/jupyter-js-filebrowser-plugin",
-    "jupyter-js-editor-plugin": "file:../jupyter-js-editor-plugin"
+    "jupyter-js-editor-plugin": "jupyter/jupyter-js-editor-plugin"
   },
   "devDependencies": {
     "rimraf": "^2.4.4",
