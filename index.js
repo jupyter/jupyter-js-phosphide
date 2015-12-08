@@ -6,5 +6,5 @@
 System.import('phosphor-plugins').then(lib => {
   lib.registerPlugin('phosphide');
   lib.registerPlugin('jupyter-js-filebrowser-plugin');
-  lib.registerPlugin('editor');
+  lib.registerPlugin('jupyter-js-editor-plugin');
 });
