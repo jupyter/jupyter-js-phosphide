@@ -1,27 +1,28 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
+import re
 import subprocess
 import sys
 
-import webbrowser
 import tornado.web
+
+PORT = 8765
 
 
 class MainPageHandler(tornado.web.RequestHandler):
 
+    def initialize(self, base_url, ws_url):
+        self.base_url = base_url
+        self.ws_url = ws_url
+
     def get(self):
-        return self.render("index.html", static=self.static_url)
+        return self.render("index.html", static=self.static_url,
+                           ws_url=self.ws_url, base_url=self.base_url)
 
 
 def main(argv):
 
-    url = "http://localhost:8765"
-
-    handlers = [
-        (r"/", MainPageHandler),
-        (r'/(.*)', tornado.web.StaticFileHandler,
-         {'path': '.'}),
-    ]
+    url = "http://localhost:%s" % PORT
 
     nb_command = [sys.executable, '-m', 'notebook', '--no-browser',
                   '--NotebookApp.allow_origin="%s"' % url]
@@ -35,19 +36,23 @@ def main(argv):
             continue
         print("Browse to http://localhost:8765")
         print(line)
-        if 'The IPython Notebook is running at: http://localhost:8888/':
+        if 'Jupyter Notebook is running at:' in line:
+            base_url = re.search('(http.*?)$', line).groups()[0]
+            ws_url = base_url.replace('http', 'ws')
             break
-        if 'Control-C' in line:
-            raise ValueError(
-                'The port 8888 was already taken, kill running notebook servers'
-            )
+
+    handlers = [
+        (r"/", MainPageHandler, dict(ws_url=ws_url, base_url=base_url)),
+        (r'/(.*)', tornado.web.StaticFileHandler,
+         {'path': '.'}),
+    ]
 
     app = tornado.web.Application(handlers, static_path='build',
                                   template_path='.')
 
-    app.listen(8765, 'localhost')
+    app.listen(PORT, 'localhost')
     loop = tornado.ioloop.IOLoop.instance()
-    #loop.add_callback(webbrowser.open, url)
+    print('Browse to http://localhost:%s' % PORT)
     try:
         loop.start()
     except KeyboardInterrupt:
