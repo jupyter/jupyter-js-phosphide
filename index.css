@@ -1,4 +1,7 @@
-
+/*-----------------------------------------------------------------------------
+// Copyright (c) Jupyter Development Team.
+// Distributed under the terms of the Modified BSD License.
+|----------------------------------------------------------------------------*/
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +10,216 @@ body {
 }
 
 
-#p-main-panel {
+.jp-CodeMirrorWidget {
+  min-width: 50px;
+  min-height: 50px;
+  border: 1px solid #C0C0C0;
+  z-index: 0;
+}
+
+
+.jp-TerminalWidget {
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.jp-TerminalWidget-body {
+  padding: 0.5em;
+  font-size: 11px;
+}
+
+
+
+.jp-FileBrowser {
+  background-color: #F5F5F5;
+  color: #757575;
+  font: 13px Helvetica, Arial, sans-serif;
+  min-width: 300px;
+}
+
+
+.jp-BreadCrumbs-item {
+  margin-right: 5px;
+  border: 1px solid transparent;
+}
+
+
+.jp-FileButtons {
+  border-bottom: 1px solid #757575;
+  padding-left: 3px;
+  padding-bottom: 8px;
+}
+
+
+.jp-FileButtons-icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.jp-FileButtons-item {
+  background-color: #FAFAFA;
+  font-size: 16px;
+  border: 1px solid #757575;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 3px;
+  max-width: 100px;
+}
+
+
+.jp-DirListing-item {
+  padding: 4px 8px;
+  border: 1px solid transparent;
+}
+
+
+.jp-DirListing-itemFile {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-width: 200px;
+}
+
+
+.jp-DirListing-itemFileIcon {
+  width: 21px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+
+.jp-DirListing-itemFileText {
+  position: absolute;
+  left: 21px;
+  right: 21px;
+  padding-left: 2px;
+}
+
+
+.jp-DirListing-itemModified {
+  padding-right: 5px;
+  width: 70px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+
+.jp-FileButtons-item.jp-mod-selected {
+  background-color: #2196F3;
+  color: #F5F5F5;
+}
+
+
+.jp-DirListing-item.jp-mod-drop-target {
+  border: 1px solid #757575;
+}
+
+
+.jp-BreadCrumbs-item.jp-mod-drop-target {
+  border: 1px solid #757575;
+}
+
+
+.jp-DirListing-item.jp-mod-selected {
+  background-color: #2196F3;
+  color: #F5F5F5;
+}
+
+
+.jp-DirListing-item.jp-mod-selected.jp-mod-cut {
+  background-color: #F1C40F;
+  color: #F5F5F5;
+}
+
+
+.jp-DirListing-itemFileIcon {
+  font-family: FontAwesome;
+}
+
+
+.jp-DirListing-folderIcon:before {
+  content: "\f114";
+}
+
+
+.jp-DirListing-fileIcon:before {
+  content: "\f016";
+}
+
+
+.jp-DirListing-nbIcon:before {
+  content: "\f02d";
+}
+
+
+.jp-DirListing-nbIcon.jp-mod-running:before {
+  color: #27AE60;
+}
+
+
+.jp-EditorWidget {
+  height: 400px;
+}
+
+
+.p-SplitPanel {
+  height: 400px;
+}
+
+
+.p-Dialog {
+  padding-left: 3px;
+  background: rgba(245, 245, 245, .6);
+}
+
+
+.p-Dialog-content {
+  background-color: #F5F5F5;
+  min-width: 50%;
+  border: 1px solid #757575;
+  border-radius: 5px;
+}
+
+
+.p-Dialog-header {
+  padding: 5px;
+  border-bottom: 1px solid #757575;
+}
+
+
+.p-Dialog-body {
+  padding: 5px;
+}
+
+
+.p-Dialog-footer {
+  padding: 5px;
+}
+
+
+.p-Dialog-button {
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px solid #757575;
+  font-size: 16px;
+  background-color: #FAFAFA;
+  line-height: 20px;
+  border-radius: 3px;
+  max-width: 100px;
+}
+
+.p-Dialog-close {
+  line-height: 21px;
+}
+
+
+.p-Dialog-close:before {
+  content: '\f00d';
+  font-family: FontAwesome;
+}
+
+
+.p-AppShell.p-Widget {
   position: absolute;
   top: 0;
   left: 0;
@@ -17,17 +229,15 @@ body {
 
 
 .p-SideBar {
-  position: relative;
   min-width: 36px;
   max-width: 36px;
   font-size: 13px;
   font-family: Helvetica, Arial;
   background: #F7F7F7;
-  z-index: 0;
 }
 
 
-.p-Widget.p-SideBar {
+.p-SideBar.p-Widget {
   overflow: visible;
 }
 
@@ -43,14 +253,8 @@ body {
 
 
 .p-SideBar-content {
-  padding: 0;
-  margin: 0;
   height: 35px;
-  display: flex;
-  align-items: stretch;
-  list-style-type: none;
   transform-origin: 0 0 0;
-  z-index: 1;
 }
 
 
@@ -66,30 +270,29 @@ body {
 }
 
 
-.p-SideBarButton {
+.p-SideBar-button {
   padding: 0 18px;
   line-height: 35px;
-  box-sizing: border-box;
 }
 
 
-.p-SideBarButton:hover:not(.p-mod-current) {
-  background: #F0F0F0;
+.p-SideBar-button:hover:not(.p-mod-current) {
+  background: white;
 }
 
 
-.p-SideBarButton.p-mod-current {
+.p-SideBar-button.p-mod-current {
   background: white;
   min-height: 36px;
 }
 
 
-.p-SideBar.p-mod-left > .p-SideBar-content > .p-SideBarButton {
+.p-SideBar.p-mod-left .p-SideBar-button {
   border-left: 1px solid #C0C0C0;
 }
 
 
-.p-SideBar.p-mod-right > .p-SideBar-content > .p-SideBarButton {
+.p-SideBar.p-mod-right .p-SideBar-button {
   border-right: 1px solid #C0C0C0;
 }
 
@@ -135,7 +338,7 @@ body {
 
 
 #p-main-dock-panel {
-  padding: 6px;
+  padding: 8px;
 }
 
 
@@ -144,29 +347,30 @@ body {
 }
 
 .p-DockTabPanel {
-  border: 1px solid #C0C0C0;
-  border-top: none;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  border-left: 1px solid #C0C0C0;
+  border-right: 1px solid #C0C0C0;
+  border-bottom: 1px solid #B0B0B0;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 
 .p-DockTabPanel > .p-StackedPanel {
-  padding: 12px;
+  padding: 8px;
   background: white;
 }
 
 
-.p-DockPanelOverlay {
-  background: rgba(236, 110, 47, 0.1);
-  border: 1px dashed #EC6E2F;
+.p-DockPanel-overlay {
+  background: rgba(64, 151, 234, 0.1);
+  border: 1px dashed #4097EA;
 }
 
 
-.p-DockPanelOverlay.p-mod-root-top,
-.p-DockPanelOverlay.p-mod-root-left,
-.p-DockPanelOverlay.p-mod-root-right,
-.p-DockPanelOverlay.p-mod-root-bottom,
-.p-DockPanelOverlay.p-mod-root-center {
+.p-DockPanel-overlay.p-mod-root-top,
+.p-DockPanel-overlay.p-mod-root-left,
+.p-DockPanel-overlay.p-mod-root-right,
+.p-DockPanel-overlay.p-mod-root-bottom,
+.p-DockPanel-overlay.p-mod-root-center {
   border-width: 2px;
 }
 
@@ -177,8 +381,12 @@ body {
 }
 
 
+/* the child selectors just increase specificity :-( */
+
 .p-TabBar > .p-TabBar-body {
   top: 1px;
+  left: -1px;
+  right: -1px;
   bottom: 1px;
 }
 
@@ -186,7 +394,7 @@ body {
 .p-TabBar > .p-TabBar-header {
   display: block;
   height: 1px;
-  background: #C0C0C0;
+  background: #D0D0D0;
 }
 
 
@@ -197,58 +405,67 @@ body {
 }
 
 
-.p-TabBar-content {
+.p-TabBar > .p-TabBar-content {
   align-items: stretch;
 }
 
 
-.p-Tab {
+.p-TabBar-tab {
   flex-basis: 125px;
   min-width: 35px;
   margin-left: -1px;
+  min-height: 23px;
+  border-top: 1px solid #C0C0C0;
   border-left: 1px solid #C0C0C0;
   border-right: 1px solid #C0C0C0;
   padding: 0px 10px;
-  background: #E5E5E5;
+  background: #EBEBEB;
   font: 12px Helvetica, Arial, sans-serif;
+  transform: translateY(-1px);
 }
 
 
-.p-Tab.p-mod-current {
-  border-top: 2px solid #EC6E2F;
+.p-TabBar-tab.p-mod-first {
+  margin-left: 0px;
+}
+
+
+.p-TabBar-tab.p-mod-current {
+  border-top: 1px solid #4097EA;
   background: white;
   min-height: 24px;
   transform: translateY(-1px);
 }
 
 
-.p-Tab:hover:not(.p-mod-current) {
+.p-TabBar-tab:hover:not(.p-mod-current) {
   background: #F0F0F0;
 }
 
 
-.p-Tab-icon,
-.p-Tab-text,
-.p-Tab-close {
-  line-height: 21px;
+.p-TabBar-tab-icon,
+.p-TabBar-tab-text,
+.p-TabBar-tab-close {
+  line-height: 23px;
 }
 
 
-.p-Tab.p-mod-closable > .p-Tab-close {
+.p-TabBar-tab.p-mod-closable > .p-TabBar-tab-close {
   margin-left: 4px;
 }
 
 
-.p-Tab.p-mod-closable > .p-Tab-close:before {
+.p-TabBar-tab.p-mod-closable > .p-TabBar-tab-close:before {
   content: '\f00d';
   font-family: FontAwesome;
 }
 
 
-.p-Tab.p-mod-drag-image {
+.p-TabBar-tab.p-mod-drag-image {
   min-height: 24px;
   min-width: 125px;
   border: none;
+  border-top: 1px solid #4097EA;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   transform: translateX(-40%) translateY(-58%);
 }
@@ -256,71 +473,6 @@ body {
 
 #p-main-split-panel > .p-SplitHandle {
   background: #C0C0C0;
-}
-
-
-.editor-CodeMirrorWidget {
-  border: 1px solid #C0C0C0;
-}
-
-.jp-FileBrowser {
-  background-color: #F5F5F5;
-  color: #757575;
-  font: 13px Helvetica, Arial, sans-serif;
-  min-height: 400px;
-}
-
-
-.jp-FileBrowser-button-item {
-  background-color: #FAFAFA;
-  font-size: 16px;
-  border: 1px solid #757575;
-  line-height: 20px;
-  border-radius: 3px;
-  max-width: 100px;
-}
-
-
-.jp-FileBrowser-button-item.jp-mod-selected {
-  background-color: #2196F3;
-  color: #F5F5F5;
-}
-
-
-.jp-FileBrowser-breadcrumbs {
-
-}
-
-
-.jp-FileBrowser-list-area {
-  border-top: 1px solid #757575;
-}
-
-
-
-.jp-EditorWidget {
-  min-height: 200px;
-}
-
-
-.jp-FileBrowser-row.jp-mod-selected {
-  background-color: #2196F3;
-  color: #F5F5F5;
-}
-
-
-.jp-FileBrowser-item-icon {
-  font-family: FontAwesome;
-}
-
-
-.jp-FileBrowser-folder-icon:before {
-  content: "\f114";
-}
-
-
-.jp-FileBrowser-file-icon:before {
-  content: "\f016";
 }
 
 
@@ -411,3 +563,4 @@ body {
 .p-Menu-item.p-mod-submenu-type > .p-Menu-item-submenu::before {
   content: '\f0da';
 }
+
